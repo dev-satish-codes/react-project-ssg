@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .container {
+                height: 250px;
+                width: 250px;
+                border: 1px solid black;
+                padding: 10px;
+                margin: 10px auto;
+                background-color: aqua;
+            }
+            .capcha {
+                height: 50px;
+                width: 130px;
+                border: 1px solid;
+                border-color: red;
+                margin: 10px auto;
+                text-align: center;
+                padding: 10px;
+            }
+            .button {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container"> 
+            <div class="button">
+                <input type="button" value="get capcha" onclick="getcapcha()" >
+            </div>
+            <div class="capcha">
+                
+            </div>
+           
+        </div>
+        <script>
+         var getcapcha = () => {
+           var string = '0123456789';
+           let otp = '';
+           var len = string.length;
+           for (i = 0; i < 6; i++){
+            otp += string[Math.floor(Math.random()*len)];
+           }
+           document.querySelector(".capcha").innerHTML=otp;
+           
+        }
+           
+        </script>
+        
+    </body>
+    
+        				
+        
+</html>
