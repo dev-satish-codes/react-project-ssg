@@ -4,6 +4,7 @@ import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import { VideoMain } from './components/videos-main';
 import { UserRegister } from './components/user-register';
 import { UserLogin } from './components/user-login';
+import { Cookies } from 'react-cookie';
 
 function App() {
   return (
@@ -14,9 +15,9 @@ function App() {
         video library
         </div>
         <div>
-          <Link to='/UserLogin' className='btn btn-light me-2'>User Signin</Link> 
-        </div>
-        <div>
+          
+          (Cookies['UserName']===undefined)? <Link to='/UserLogin' className='btn btn-light me-2'>User Signin</Link> 
+          
           admin dashbord
         </div>
 
