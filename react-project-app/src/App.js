@@ -6,6 +6,7 @@ import { UserRegister } from './components/user-register';
 import { UserLogin } from './components/user-login';
 import { Cookies } from 'react-cookie';
 import { UserDashbord } from './components/user-dashbord';
+import { AdminLogin } from './components/admin-login';
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
           
           (Cookies['UserName']===undefined)? <Link to='/UserLogin' className='btn btn-light me-2'>User Signin</Link> 
           
-          admin dashbord
+         <Link to="/AdminLogin" className='btn btn-light'><span className='bi bi-person-fill'></span>Admin dashbord</Link>
         </div>
 
       </header>
@@ -29,6 +30,7 @@ function App() {
           <Route path='UserRegister' element={<UserRegister/>}></Route>
           <Route path='UserLogin' element={<UserLogin/>}></Route>
           <Route path='UserDashbord' element={<UserDashbord/>}></Route>
+          <Route path='AdminLogin' element={<AdminLogin/>}></Route>
         </Routes>
       </section>
       </BrowserRouter>
