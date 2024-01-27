@@ -5,6 +5,7 @@ import { VideoMain } from './components/videos-main';
 import { UserRegister } from './components/user-register';
 import { UserLogin } from './components/user-login';
 import { Cookies } from 'react-cookie';
+import { UserDashbord } from './components/user-dashbord';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path='/' element={<VideoMain/>}> </Route>
           <Route path='UserRegister' element={<UserRegister/>}></Route>
           <Route path='UserLogin' element={<UserLogin/>}></Route>
+          <Route path='UserDashbord' element={<UserDashbord/>}></Route>
         </Routes>
       </section>
       </BrowserRouter>
