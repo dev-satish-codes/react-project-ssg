@@ -22,7 +22,7 @@ export function UserLogin(){
                 setCookie("UserName", user.UserName);
                 navigate("/UserDashbord");
             }else{
-                setusererror('invalid credentials...');
+                setusererror('invalid credentials...');              
             }
         }
      })

@@ -30,11 +30,11 @@ export function UserDashbord(){
                 {
                     video.map(video=>
                         <div key={video.VideoId} className="card p-2 m-2" style={{width:'400px'}}>
-                            <div className="card-header" style={{height:'120px'}}>
+                            <div className="card-header" style={{height:'50px'}}>
                                <h3> {video.Title}</h3>
                             </div>
                             <div className="card-body">
-                                <iframe src={video.Url} height="200" width="100"></iframe>
+                                <iframe src={video.Url} height="200" width="300"></iframe>
                             </div>
                             <div className="card-footer">
                             <span className="bi bi-hand-thumbs-up"></span> {video.Likes} Likes
