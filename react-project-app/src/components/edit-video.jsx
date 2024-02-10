@@ -4,8 +4,8 @@ import { useEffect, useState } from "react"
 import { Link, useNavigate, useParams } from "react-router-dom";
 
  export function EditVideo(){
-    const[Category,setCategory]=useState([{Category_Id:0,CategoryName:''}])
-    const[videos,setvideos]= useState([{VideoId:0,Title:'',Url:'',Likes:0,Comments:'',Category_Id:0}]);
+    const[Category,setCategory]=useState([{category_Id:0,categoryName:''}])
+    const[videos,setvideos]= useState([{VideoId:0,Title:'',Url:'',Likes:0,Comments:'',category_Id:0}]);
    
 
     let navigate = useNavigate();
@@ -17,7 +17,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
             Url:videos[0].Url,
             Likes:videos[0].Likes,
             Comments:videos[0].Comments,
-            Category_Id:videos[0].Category_Id
+            category_Id:videos[0].category_Id
 
         },
         enableReinitialize:true,
@@ -30,19 +30,18 @@ import { Link, useNavigate, useParams } from "react-router-dom";
     });
         function LoadCategorys(){
             axios.get(`http://127.0.0.1:2200/categories`)
-            .then(responce=>{
-                responce.data.unshift({Category_Id:-1,CategoryName:'Select Category'});
-                setCategory(responce.data);
-            })
+            .then(response=>{
+                response.data.unshift({category_Id:-1,categoryName:'Select Category'});
+                setCategory(response.data);
+            })      
         }
-    useEffect(()=>{
-        LoadCategorys();
-        axios.get(`http://127.0.0.1:2200/video/${params.id}`)
-        .then(responce=>{
-            setvideos(responce.data)
-        })
-
-    },[]);
+        useEffect(()=>{
+            LoadCategorys();
+            axios.get(`http://127.0.0.1:2200/video/${params.id}`)
+            .then(response=>{
+                setvideos(response.data);
+            })
+        },[]);
     
     return(
         <div>
@@ -60,11 +59,11 @@ import { Link, useNavigate, useParams } from "react-router-dom";
                 <dd><input type="text" value={formik.values.Comments} onChange={formik.handleChange} name="comments" /></dd>
                 <dt>Category</dt>
                 <dd>
-                    <select value={formik.values.Category_Id} onChange={formik.handleChange} name="Category_Id">
+                    <select value={formik.values.category_Id} onChange={formik.handleChange} name="Category_Id">
                         {
                             Category.map(Category=>
-                                <option key={Category.Category_Id} value={Category.Category_Id}>
-                                    {Category.CategoryName.toUpperCase()}
+                                <option key={Category.category_Id} value={Category.category_Id}>
+                                     {Category.categoryName.toUpperCase()}
                                 </option>
                                 )
                         }

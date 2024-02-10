@@ -10,6 +10,7 @@ import { AdminLogin } from './components/admin-login';
 import { AdminDashbord } from './components/admin-dashbord';
 import { AddVideo } from './components/add-video';
 import { EditVideo } from './components/edit-video';
+import { DeleteVideo } from './components/deletee-video';
 
 
 function SignoutComponent(){
@@ -52,6 +53,8 @@ function App() {
           <Route path='AdminDashbord' element={<AdminDashbord/>}></Route>
           <Route path='AddVideo' element={<AddVideo/>}></Route>
           <Route path='EditVideo' element={<EditVideo/>}></Route>
+          <Route path='DeleteVideo' element={<DeleteVideo/>}></Route>
+          
         </Routes>
       </section>
       </BrowserRouter>

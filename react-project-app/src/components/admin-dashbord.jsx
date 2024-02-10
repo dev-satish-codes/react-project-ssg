@@ -45,11 +45,12 @@ export function AdminDashbord(){
                                 <td><iframe src={video.Url} height="100" width="300"></iframe></td>
                                 <td>
                                     <Link to={`/EditVideo/${video.VideoId}`} className="btn btn-warning bi bi-pen-fill me-2"></Link>
-                                    <Link to={`/DeleteVideo/${video.VideoId}`} className="btn btn-danger bi bi-trash-fill"></Link>
+                                    <Link to={`/DeleteVideo`} className="btn btn-danger bi bi-trash-fill"></Link>
+                                   
                                 </td>
                             </tr>
                             )
-                    }
+                    } 
                 </tbody>
 
            </table>
