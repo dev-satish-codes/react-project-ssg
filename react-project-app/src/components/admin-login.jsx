@@ -21,7 +21,7 @@ export function AdminLogin(){
             var user = users.find(item=>item.UserID === values.UserID)
             if(user.Password === values.Password){
                 setCookie("adminName",user.UserID)
-                navigate('/AdminDashbord')
+                navigate('/AdminDashboard')
             }else{
                 seterrors('Invalid credentials....')
             }

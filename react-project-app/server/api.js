@@ -137,7 +137,7 @@ app.put("/editvideo/:id",(req, res)=>{
      })
 });
 
-app.delete("/deletevideo/:id", (req, res)=>{
+app.delete("/deletevideo/:id", (req, res)=>{ 
     var id = parseInt(req.params.id);
     mongoClient.connect(conString).then((clientObj)=>{
         var database = clientObj.db("reactdb");

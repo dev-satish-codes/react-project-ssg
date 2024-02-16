@@ -21,7 +21,7 @@ export function AddVideo(){
         onSubmit:(values)=>{
             axios.post('http://127.0.0.1:2200/addvideo',values);
             alert('video added successfully...')
-            navigate('/AdminDashbord');
+            navigate('/AdminDashboard');
         }
     })
     function Loadcategories(){
@@ -49,6 +49,8 @@ export function AddVideo(){
                     <dd><input type="number" onChange={formik.handleChange} name="Likes" /></dd>
                     <dt>Comments</dt>
                     <dd><input type="text" onChange={formik.handleChange} name="Comments" /></dd>
+                    <dt>Category_Id</dt>
+                    <dd><input type="text" onChange={formik.handleChange} name="Category_Id" /></dd>
                     <dt>Category</dt>
                     <dd>
                         <select onChange={formik.handleChange} name="category_Id">
