@@ -39,7 +39,10 @@ function App() {
           {
             (Cookies['UserName']===undefined)? <Link to='/UserLogin' className='btn btn-light me-2'>User Signin</Link> :<SignoutComponent/>
           }
-         <Link to="/AdminLogin" className='btn btn-light'><span className='bi bi-person-fill'></span>Admin dashbord</Link>
+          {
+             (Cookies['UserID']===undefined)? <Link to='/AdminLogin' className='btn btn-light me-2'>Admin dashbord</Link> :<SignoutComponent/>
+          }
+        
         </div>
 
       </header>

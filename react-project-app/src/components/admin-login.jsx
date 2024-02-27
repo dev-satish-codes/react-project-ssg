@@ -3,6 +3,7 @@ import { useFormik } from "formik";
 import { useEffect, useState } from "react"
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
+import * as Yup from 'yup';
 
 export function AdminLogin(){
 
@@ -17,9 +18,17 @@ export function AdminLogin(){
             UserID:'',
             Password:''
         },
+
+        validationSchema: Yup.object().shape({
+            UserID: Yup.string()
+                .required('User ID is required'),
+            Password: Yup.string()
+                .required('Password is required')
+        }),
+
         onSubmit:(values)=>{
             var user = users.find(item=>item.UserID === values.UserID)
-            if(user.Password === values.Password){
+            if(user && user.Password === values.Password){
                 setCookie("adminName",user.UserID)
                 navigate('/AdminDashboard')
             }else{
@@ -36,11 +45,33 @@ export function AdminLogin(){
     return(
         <div>
             <form onSubmit={formik.handleSubmit}>
-                <dl>
-                    <dt>Admin ID</dt>
-                    <dd><input type="text" onChange={formik.handleChange} name="UserID" /></dd>
+            <dl>
+                    <dt>Admin Id</dt>
+                    <dd>
+                        <input
+                            type="text"
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            value={formik.values.UserID}
+                            name="UserID"
+                        />
+                        {formik.touched.UserID && formik.errors.UserID ? (
+                            <div className="text-danger">{formik.errors.UserID}</div>
+                        ) : null}
+                    </dd>
                     <dt>Password</dt>
-                    <dd><input type="password" onChange={formik.handleChange} name="Password" /></dd>
+                    <dd>
+                        <input
+                            type="password"
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            value={formik.values.Password}
+                            name="Password"
+                        />
+                        {formik.touched.Password && formik.errors.Password ? (
+                            <div className="text-danger">{formik.errors.Password}</div>
+                        ) : null}
+                    </dd>
                 </dl>
                 <button className="btn btn-primary">Login</button>
                 <p className=" h3 text-danger">{errors}</p>
