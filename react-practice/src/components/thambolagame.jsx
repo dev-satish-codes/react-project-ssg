@@ -67,7 +67,7 @@ export function ThambolaGame() {
 
 
       <div style={{ textAlign: 'center', marginTop: '5px' }}>
-        <table style={{ margin: '0 auto' }} class="table table-bordered">
+        <table style={{ margin: '0 auto'}} class="table table-bordered">
           <tbody>
             {[...Array(9)].map((_, rowIndex) => (
               <tr key={rowIndex}>

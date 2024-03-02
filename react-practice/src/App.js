@@ -20,17 +20,16 @@ function TambolaCoinPicker() {
       return;
     }
 
+    const randomIndex = Math.floor(Math.random() * remainingNumbers.length);
+    const randomNumber = remainingNumbers[randomIndex];
+    setPickedNumber(randomNumber);
+
+    const updatedPickedNumbers = [...pickedNumbers, randomNumber];
+    setPickedNumbers(updatedPickedNumbers);
+
+    const updatedRemainingNumbers = remainingNumbers.filter(num => num !== randomNumber);
+    setRemainingNumbers(updatedRemainingNumbers);
   }
-  
-  const randomIndex = Math.floor(Math.random() * remainingNumbers.length);
-  const randomNumber = remainingNumbers[randomIndex];
-  setPickedNumber(randomNumber);
-
-  const updatedPickedNumbers = [...pickedNumbers, randomNumber];
-  setPickedNumbers(updatedPickedNumbers);
-
-  const updatedRemainingNumbers = remainingNumbers.filter(num => num !== randomNumber);
-  setRemainingNumbers(updatedRemainingNumbers);
 
   function resetGame() {
     setPickedNumber(null);
