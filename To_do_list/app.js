@@ -89,6 +89,7 @@ window.addEventListener('load', () =>{
     const form = document.querySelector("#new-task-form");
     const input = document.querySelector("#new-task-input");
     const list_el = document.querySelector("#tasks");
+    const errormsg = document.querySelector("#task-error-msg");
 
     // Load tasks from local storage when the page loads
     let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
@@ -102,8 +103,10 @@ window.addEventListener('load', () =>{
         const task = input.value;
 
         if(!task ) {
-            alert("please enter a task");
-            return;
+          errormsg.style.display = "block" ;
+          return;
+        }else{
+            errormsg.style.display = "none";
         }
 
         // Save tasks to local storage 
@@ -115,6 +118,12 @@ window.addEventListener('load', () =>{
 
         input.value = "";
     });
+
+    input.addEventListener('input', ()=>{
+        if(input.value){
+            errormsg.style.display="none";
+        }
+    })
 
     function addTaskList(task) {
         const task_el = document.createElement('div');
