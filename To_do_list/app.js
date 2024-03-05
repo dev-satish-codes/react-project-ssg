@@ -91,7 +91,7 @@ window.addEventListener('load', () =>{
     const list_el = document.querySelector("#tasks");
 
     // Load tasks from local storage when the page loads
-    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     tasks.forEach(task => {
         addTaskList(task);
     });
@@ -159,7 +159,8 @@ window.addEventListener('load', () =>{
                 task_input_el.setAttribute("readonly", "readonly");
                 task_edit_el.innerText = "Edit";
                 // Update the task in the local storage when edited
-                tasks[list_el.children.indexOf(task_el)] = task_input_el.value;
+                const index = Array.from(list_el.children).indexOf(task_el);
+                tasks[index] = task_input_el.value;
                 localStorage.setItem('tasks', JSON.stringify(tasks));
             }
         });
@@ -175,3 +176,4 @@ window.addEventListener('load', () =>{
         });
     }
 });
+
