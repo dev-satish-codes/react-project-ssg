@@ -1,0 +1,73 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .game-container {
+    text-align: center;
+    border: 2px solid #333;
+    padding: 20px;
+    background-color: #8cc461;
+  }
+  .scoreboard{
+    display: flex;
+     justify-content: space-around;
+    align-items: center; 
+    gap: 40px; 
+  }
+  .scoreboard h3{
+    margin: 0;
+    padding: 0;
+    color: white;
+  }
+  
+  
+  .choices button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+   button{
+    border-radius: 50%;
+  }
+  
+  .rules-popup {
+    display: none;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color:#004429;
+    border: 2px solid #333;
+    padding: 20px;
+    width: 300px;
+  }
+  
+  .rules-popup .popup-content {
+    text-align: left;
+    color: white;
+  }
+  
+  #celebration {
+    display: none;
+    margin-top: 20px;
+    font-size: 24px;
+    color: green;
+  }
+  
+  #rulesBtn {
+    margin-top: 20px;
+    padding: 10px;
+  }
+  
+  #closeRules {
+    margin-top: 10px;
+  }
+  

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock, Paper, Scissors Game</title>
+  <link rel="stylesheet" href="game.css">
+</head>
+
+<body>
+  <div class="game-container">
+    <div class="scoreboard">
+      <div class="left-section">
+        <h3>Rock</h3>
+        <h3>paper</h3>
+        <h3>Scissors</h3>
+      </div>
+      <div class="right-section">
+        <p>Your score: <span id="playerScore">0</span></p>
+        <p>Computer score: <span id="computerScore">0</span></p>
+      </div>
+    </div>
+
+    <div class="choices">
+      <button class="choice" id="rock"><img src="./rock-img.png" alt=""></button>
+      <button class="choice" id="paper"> <img src="./icons8-hand-50.png" alt=""></button>
+      <button class="choice" id="scissors"><img src="./icons8-two-fingers-50.png" alt=""></button>
+    </div>
+
+    <div id="resultMessage"></div>
+
+    <div class="rules">
+      <button id="rulesBtn">Rules</button>
+      <div id="rulesPopup" class="rules-popup">
+        <div class="popup-content">
+          <h3>Game Rules:</h3>
+          <ul>
+            <li>Rock beats Scissors.</li>
+            <li>Scissors beats Paper.</li>
+            <li>Paper beats Rock.</li>
+            <li>If both choose the same, it's a tie.</li>
+          </ul>
+          <button id="closeRules">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="celebration"></div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+
+</html>
